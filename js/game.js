@@ -458,7 +458,7 @@ function init(){
 		},
 		betted: false,
 		dealt: 0,
-		chips: game.balanceChips(1000),
+		chips: game.balanceChips(10000),
 
 		hit: function(){
 			if(this.betted){
