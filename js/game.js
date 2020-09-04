@@ -52,8 +52,8 @@ function init(){
 			alertText.y = 120;
 			stage.addChild(alertText);
 			createjs.Tween.get(alertText)
-				.wait(1000)
-				.to({alpha: 0}, 1000, createjs.Ease.getPowInOut(1));
+				.wait(10000)
+				.to({alpha: 0}, 10000, createjs.Ease.getPowInOut(1));
 		},
 
 		reset: function(){
@@ -421,7 +421,7 @@ function init(){
 			if(total < 17){
 				game.distributeCard('bank');
 				if(game.deckValue(this.deck) < 17)
-					setTimeout(() => bank.play(), 1000);
+					setTimeout(() => bank.play(), 10000);
 				else
 					game.check();
 			}
@@ -443,7 +443,7 @@ function init(){
 		blackjack: false,
 		insurance: false,
 		doubled: false,
-		funds: 1000,
+		funds: 10000,
 		fundsText: {
 			text: false,
 			init: function(){
