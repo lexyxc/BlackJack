@@ -52,8 +52,8 @@ function init(){
 			alertText.y = 120;
 			stage.addChild(alertText);
 			createjs.Tween.get(alertText)
-				.wait(10000)
-				.to({alpha: 0}, 10000, createjs.Ease.getPowInOut(1));
+				.wait(1000)
+				.to({alpha: 0}, 1000, createjs.Ease.getPowInOut(1));
 		},
 
 		reset: function(){
