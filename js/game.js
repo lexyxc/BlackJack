@@ -18,7 +18,7 @@ function init(){
 			new Button('Stand', '#fff', 200, 100, () => player.stand()),
 			new Button('Go', '#fff', 935, -430, () => game.go()),
 			new Button('Insurance', '#fff', 100, -80, () => player.insure()),
-			//new Button('Split', '#fff', 100, -40, () => l('split')),
+			new Button('ALL IN', '#fff', 100, -120, () => ('player.allin')),
 			new Button('Double', '#fff', 100, -40, () => player.double()),
 			new Button('Give up', '#fff', 100, 0, () => player.giveUp()),
 			new Button('New game', '#fff', 100, -490, () => game.reset())
