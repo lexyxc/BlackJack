@@ -18,7 +18,7 @@ function init(){
 			new Button('Stand', '#fff', 200, 100, () => player.stand()),
 			new Button('Go', '#fff', 935, -430, () => game.go()),
 			new Button('Insurance', '#fff', 100, -80, () => player.insure()),
-			new Button('ALL IN', '#fff', 100, -120, () => ('player.allin')),
+			new Button('ALL IN', '#fff', 100, -120, () => player.allin()),
 			new Button('Double', '#fff', 100, -40, () => player.double()),
 			new Button('Give up', '#fff', 100, 0, () => player.giveUp()),
 			new Button('New game', '#fff', 100, -490, () => game.reset())
@@ -441,6 +441,7 @@ function init(){
 		cardsContainer: false,
 		chipsContainer: false,
 		blackjack: false,
+		allin: false,
 		insurance: false,
 		doubled: false,
 		funds: 10000,
@@ -479,6 +480,17 @@ function init(){
 			bank.play();
 		},
 
+		allin: function(){
+			if(game.inProgress && bank.deck.length === 2 && bank.deck[0].value === 'A'){
+				this.funds -= this.insurance;
+				this.chips = game.balanceChips(this.funds);
+				this.fundsText.update();
+				game._alert(messages.warning.insured);
+			}
+			else
+				game._alert(messages.warning.insurance);
+		},
+		
 		insure: function(){
 			if(game.inProgress && bank.deck.length === 2 && bank.deck[0].value === 'A'){
 				this.insurance = Math.round(this.dealt / 2);
